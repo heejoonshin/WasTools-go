@@ -1,0 +1,7 @@
+name: app_test
+app:
+  port: 8080
+db:
+  type: sqlite3
+  host: ./gorm.db
+
