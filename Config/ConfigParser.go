@@ -17,6 +17,7 @@ type Setting struct{
 
 func (setting *Setting) getConfig() error{
 
+
 	ymalFile, err := ioutil.ReadFile("./Config.yaml")
 	if err != nil{
 		log.Printf("yamlFile.Get err # %v ", err)
