@@ -50,6 +50,12 @@
 			"revisionTime": "2018-12-31T01:02:53Z"
 		},
 		{
+			"checksumSHA1": "HmbftipkadrLlCfzzVQ+iFHbl6g=",
+			"path": "github.com/golang/glog",
+			"revision": "23def4e6c14b4da8ac2ed8007337bc5eb5007998",
+			"revisionTime": "2016-01-25T20:49:56Z"
+		},
+		{
 			"checksumSHA1": "78s5QHc1fFQigYTQzoALpaFcJZI=",
 			"path": "github.com/golang/oauth2",
 			"revision": "d668ce993890a79bda886613ee587a69dd5da7a6",
@@ -110,10 +116,22 @@
 			"revisionTime": "2018-07-18T01:23:57Z"
 		},
 		{
+			"checksumSHA1": "FdCoXujHIVFbxS7lIYx0U3YTuNQ=",
+			"path": "github.com/szuecs/gin-glog",
+			"revision": "da59244bde84149ae00db0c2b8e62b9d899e6993",
+			"revisionTime": "2017-09-05T21:23:50Z"
+		},
+		{
 			"checksumSHA1": "j/aP/n+qaMNBUou/a2m2LDJ5q3Q=",
 			"path": "github.com/ugorji/go/codec",
 			"revision": "772ced7fd4c2f6322c07537a9a93b68d74551fa6",
 			"revisionTime": "2018-12-09T15:14:46Z"
+		},
+		{
+			"checksumSHA1": "Em2lsdQLmeEt5gTQwmgxzef48Zw=",
+			"path": "github.com/zalando/gin-oauth2",
+			"revision": "584ad92f14822734bddb31ca42843c4fb1ebb15b",
+			"revisionTime": "2018-10-12T11:24:55Z"
 		},
 		{
 			"checksumSHA1": "GtamqiJoL7PGHsN454AoffBFMa8=",

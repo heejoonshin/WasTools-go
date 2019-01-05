@@ -32,3 +32,5 @@ func (setting *Setting) getConfig() error{
 
 }
 
+
+
