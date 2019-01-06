@@ -1,25 +1,34 @@
-package Config
+package Oauth2
 
 import (
-	"github.com/heejoonshin/WasTools-go/Config/Oauth2"
+	"golang.org/x/oauth2"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 )
-type OauthMannager struct{
-	Kakao Oauth2.Client
+
+type Client struct{
+
+	Client oauth2.Config
+	Resource map[string]string
 }
-func (oauthmannager *OauthMannager)ReadConfig(path string) error{
+
+func (c *Client)ReadYaml(path string) error{
+
 	ymalFile, err := ioutil.ReadFile(path)
 	if err != nil{
 		log.Printf("yamlFile.Get err # %v ", err)
 		return err
 	}
-	err = yaml.Unmarshal(ymalFile,&oauthmannager)
+	err = yaml.Unmarshal(ymalFile,&c)
 	if err != nil {
 		log.Fatalf("error: %v", err)
 		return err
 	}
+
 	return nil
 
+
 }
+
+
