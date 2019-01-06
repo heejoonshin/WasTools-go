@@ -13,9 +13,10 @@ type Setting struct{
 	Name string
 	App Application
 	Db Db
+	Oauth OauthMannager
 }
 
-func (setting *Setting) getConfig() error{
+func (setting *Setting) GetConfig() error{
 
 
 	ymalFile, err := ioutil.ReadFile("./Config.yaml")
@@ -26,6 +27,10 @@ func (setting *Setting) getConfig() error{
 	err = yaml.Unmarshal(ymalFile,&setting)
 	if err != nil{
 		log.Printf("Unmarshal: %v", err)
+		return err
+	}
+	err = setting.Oauth.ReadConfig("./Oauth2/oauth2.yaml")
+	if err != nil{
 		return err
 	}
 	return nil

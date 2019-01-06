@@ -25,7 +25,7 @@ type T struct {
 }
 func TestConfig(t *testing.T){
 	var set Setting
-	set.getConfig()
+	set.GetConfig()
 
 	fmt.Println(set)
 
