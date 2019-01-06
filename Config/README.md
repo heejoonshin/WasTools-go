@@ -17,7 +17,7 @@
         endpoint :
           authurl : https://kauth.kakao.com/oauth/token
           tokenurl : https://kauth.kakao.com/oauth/authorize
-        redirecturl : https://localhost:8080/kakaologin
+        redirecturl : 개인이 설정한 redirecturl
       resource:
         sign : https://kapi.kakao.com/v1/user/signup
         userinfo : https://kapi.kakao.com/v2/user/me
