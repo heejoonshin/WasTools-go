@@ -30,6 +30,8 @@ func (oauthmannager *OauthMannager)ReadConfig(path string) error{
 		return err
 	}
 	err = yaml.Unmarshal(ymalFile,&oauthmannager)
+	oauthmannager.Kakao.Setup()
+
 	if err != nil {
 		log.Fatalf("error: %v", err)
 		return err

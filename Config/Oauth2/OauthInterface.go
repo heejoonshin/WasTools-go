@@ -6,9 +6,6 @@ import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
-	"gopkg.in/yaml.v2"
-	"io/ioutil"
-	"log"
 )
 
 type Client struct{
@@ -25,20 +22,10 @@ func randToken() string {
 	rand.Read(b)
 	return base64.StdEncoding.EncodeToString(b)
 }
-func (c *Client)ReadYaml(path string) error{
+func (c *Client)Setup() error{
 	c.secret = []byte("test")
 	c.store = sessions.NewCookieStore(c.secret)
 
-	ymalFile, err := ioutil.ReadFile(path)
-	if err != nil{
-		log.Printf("yamlFile.Get err # %v ", err)
-		return err
-	}
-	err = yaml.Unmarshal(ymalFile,&c)
-	if err != nil {
-		log.Fatalf("error: %v", err)
-		return err
-	}
 
 	return nil
 
@@ -57,4 +44,5 @@ func (c *Client) LoginHandler(ctx *gin.Context) {
 func (c *Client)GetLoginURL(state string) string{
 	return c.Client.AuthCodeURL(state)
 }
+
 

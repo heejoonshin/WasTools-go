@@ -19,7 +19,7 @@ type Setting struct{
 func (setting *Setting) GetConfig() error{
 
 
-	ymalFile, err := ioutil.ReadFile("./Config.yaml")
+	ymalFile, err := ioutil.ReadFile("./Config/Config.yaml")
 	if err != nil{
 		log.Printf("yamlFile.Get err # %v ", err)
 		return err
@@ -29,7 +29,7 @@ func (setting *Setting) GetConfig() error{
 		log.Printf("Unmarshal: %v", err)
 		return err
 	}
-	err = setting.Oauth.ReadConfig("./Oauth2/oauth2.yaml")
+	err = setting.Oauth.ReadConfig("./Config/Oauth2/oauth2.yaml")
 	if err != nil{
 		return err
 	}
