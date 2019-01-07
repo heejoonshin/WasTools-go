@@ -25,3 +25,4 @@ func (db *Db)Connect() error{
 	db.database = conn
 	return nil
 }
+
