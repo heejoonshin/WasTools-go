@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"github.com/heejoonshin/WasTools-go/Config"
-	"github.com/heejoonshin/WasTools-go/Config/Oauth2/kakao"
 	"github.com/szuecs/gin-glog"
 	"github.com/zalando/gin-oauth2"
 	"time"
@@ -26,12 +25,13 @@ func main() {
 		c.JSON(200, gin.H{"message": "Hello to public world"})
 	})
 	router.Use(property.Oauth.Kakao.Session("goquestsession"))
-	router.GET("/login",property.Oauth.Kakao.LoginHandler)
+	router.GET("/login",property.Oauth.Naver.LoginHandler)
 
 	private := router.Group("/auth")
 
 
-	private.Use(kakao.Auth(&property.Oauth.Kakao))
+	//private.Use(property.Oauth.Kakao.Auth())
+	private.Use(property.Oauth.Naver.Auth())
 	private.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "Hello from private"})
 	})

@@ -6,7 +6,7 @@ import (
 )
 
 func TestClient_ReadYaml(t *testing.T) {
-	var oauthconf Client
+	var oauthconf Oauthconf
 	//oauthconf.ReadYaml("./kakao/kakao.yaml")
 	fmt.Print(oauthconf)
 }

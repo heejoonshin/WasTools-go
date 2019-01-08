@@ -1,4 +1,4 @@
-package kakao
+package naver
 
 import (
 	"fmt"
@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/heejoonshin/WasTools-go/Config/Oauth2"
 	"golang.org/x/oauth2"
+
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
@@ -13,8 +14,11 @@ import (
 	"strings"
 )
 
-type KakaoOauth struct{
-	Oauthconf Oauth2.Oauthconf `yaml:"kakao"`
+
+
+
+type NaverOauth struct{
+	Oauthconf Oauth2.Oauthconf `yaml:"naver"`
 	secret []byte
 	store sessions.CookieStore
 	state string
@@ -22,7 +26,7 @@ type KakaoOauth struct{
 
 }
 
-func (k *KakaoOauth)ReadConfig(path string) error{
+func (k *NaverOauth)ReadConfig(path string) error{
 	ymalFile, err := ioutil.ReadFile(path)
 	if err != nil{
 		log.Printf("yamlFile.Get err # %v ", err)
@@ -41,17 +45,17 @@ func (k *KakaoOauth)ReadConfig(path string) error{
 
 }
 
-func (k *KakaoOauth)Setup() error{
+func (k *NaverOauth)Setup() error{
 	k.secret = []byte("test")
 	k.store = sessions.NewCookieStore(k.secret)
 	return nil
 
 
 }
-func (c *KakaoOauth)Session(name string) gin.HandlerFunc {
+func (c *NaverOauth)Session(name string) gin.HandlerFunc {
 	return sessions.Sessions(name, c.store)
 }
-func (c *KakaoOauth) LoginHandler(ctx *gin.Context) {
+func (c *NaverOauth) LoginHandler(ctx *gin.Context) {
 	c.state = Oauth2.RandToken()
 	session := sessions.Default(ctx)
 	session.Set("state", c.state)
@@ -61,10 +65,10 @@ func (c *KakaoOauth) LoginHandler(ctx *gin.Context) {
 }
 
 
-func (c *KakaoOauth)GetLoginURL(state string) string{
+func (c *NaverOauth)GetLoginURL(state string) string{
 	return c.Oauthconf.Client.AuthCodeURL(state)
 }
-func (c *KakaoOauth)Auth() gin.HandlerFunc{
+func (c *NaverOauth)Auth() gin.HandlerFunc{
 	return func(ctx *gin.Context) {
 		// Handle the exchange code to initiate a transport.
 		session := sessions.Default(ctx)
