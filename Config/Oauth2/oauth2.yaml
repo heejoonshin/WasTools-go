@@ -1,0 +1,14 @@
+kakao:
+  client :
+    clientid : 0e6442271cf2844abd1075937a734afa
+    clientsecret : 764553d9bc1e63052046ae7b33e17825
+    redirecturl : http://localhost:8080/auth
+    endpoint :
+      authurl : https://kauth.kakao.com/oauth/authorize
+      tokenurl : https://kauth.kakao.com/oauth/token
+  resource :
+    sign : kapi.kakao.com/v1/user/signup
+    userinfo : kapi.kakao.com/v2/user/me
+
+
+
