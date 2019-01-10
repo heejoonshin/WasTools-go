@@ -86,19 +86,21 @@ func (c *KakaoOauth)Auth() gin.HandlerFunc{
 
 		client := c.Oauthconf.Client.Client(oauth2.NoContext, tok)
 		userinfo, err := client.Get(c.Oauthconf.Resource["userinfo"])
-		client.Post(c.Oauthconf.Resource["userinfo"],"application/x-www-form-urlencoded;charset=utf-8",ioutil.ReadAll())
-		fmt.Print(userinfo)
 		if err != nil {
 			ctx.AbortWithError(http.StatusBadRequest, err)
 			return
 		}
 		defer userinfo.Body.Close()
+
+
 		data, err := ioutil.ReadAll(userinfo.Body)
+
 		if err != nil {
 			glog.Errorf("[Gin-OAuth] Could not read Body: %s", err)
 			ctx.AbortWithError(http.StatusInternalServerError, err)
 			return
 		}
+
 
 		var user map[string]interface{}
 		err = json.Unmarshal(data,&user)
