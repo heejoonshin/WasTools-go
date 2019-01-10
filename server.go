@@ -25,13 +25,13 @@ func main() {
 		c.JSON(200, gin.H{"message": "Hello to public world"})
 	})
 	router.Use(property.Oauth.Kakao.Session("goquestsession"))
-	router.GET("/login",property.Oauth.Naver.LoginHandler)
+	router.GET("/login",property.Oauth.Kakao.LoginHandler)
 
 	private := router.Group("/auth")
 
 
-	//private.Use(property.Oauth.Kakao.Auth())
-	private.Use(property.Oauth.Naver.Auth())
+	private.Use(property.Oauth.Kakao.Auth())
+	//private.Use(property.Oauth.Naver.Auth())
 	private.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "Hello from private"})
 	})

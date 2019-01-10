@@ -6,8 +6,8 @@ kakao:
       authurl : https://kauth.kakao.com/oauth/authorize
       tokenurl : https://kauth.kakao.com/oauth/token
   resource :
-    sign : kapi.kakao.com/v1/user/signup
-    userinfo : kapi.kakao.com/v2/user/me
+    sign : https://kapi.kakao.com/v1/user/signup
+    userinfo : https://kapi.kakao.com/v2/user/me
 
 naver:
   client :
