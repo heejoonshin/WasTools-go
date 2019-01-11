@@ -44,7 +44,7 @@ func (o *Oauthconf)LoginHandler(ctx *gin.Context){
 	session := sessions.Default(ctx)
 	session.Set("state", o.state)
 	session.Save()
-	ctx.Writer.Write([]byte("<html><title>Golang Kakao</title> <body> <a href='" + o.GetLoginURL(c.state) + "'><button>Login with KaKao!</button> </a> </body></html>"))
+	ctx.Writer.Write([]byte("<html><title>Golang "+o.ClientName+"</title> <body> <a href='" + o.GetLoginURL(o.state) + "'><button>Login with "+o.ClientName+"</button> </a> </body></html>"))
 }
 
 func (o *Oauthconf)GetLoginURL(state string) string{

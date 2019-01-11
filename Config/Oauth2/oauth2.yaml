@@ -1,6 +1,6 @@
 kakao:
   client :
-    clientid : 0e6442271cf2844abd1075937a734afa
+    clientid :
     redirecturl : http://localhost:8080/auth
     endpoint :
       authurl : https://kauth.kakao.com/oauth/authorize
@@ -11,8 +11,8 @@ kakao:
 
 naver:
   client :
-    clientid : loeEuLjELiQua4L2VFl2
-    clientsecret : 9i_fTDRtVp
+    clientid :
+    clientsecret :
     redirecturl : http://localhost:8080/auth
     endpoint :
       authurl : https://nid.naver.com/oauth2.0/authorize

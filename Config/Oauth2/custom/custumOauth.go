@@ -45,7 +45,6 @@ func (o *CustomOauth)customOauthParser(config map[string]interface{}) (err error
 		if err != nil{
 			return nil
 		}
-
 		o.oauth[k] = &Oauth2.Oauthconf{}
 		o.oauth[k].ClientName = k
 		err = yaml.Unmarshal(b,o.oauth[k])
@@ -54,4 +53,14 @@ func (o *CustomOauth)customOauthParser(config map[string]interface{}) (err error
 		}
 	}
 	return nil
+}
+func (o *CustomOauth)GetOauthProvider(provider string) (oauth *Oauth2.Oauthconf, err error){
+	if value,ok := o.oauth[provider]; ok {
+		return value,nil
+
+	}else{
+		return nil,fmt.Errorf("Not Found Provider")
+
+	}
+
 }
