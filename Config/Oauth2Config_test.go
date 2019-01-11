@@ -19,6 +19,10 @@ func TestReflect(t *testing.T){
 	var temp oauth2.Config
 
 	types := reflect.ValueOf(&temp).Elem()
+	if types.FieldByName("test").Kind() == reflect.Invalid{
+		fmt.Println("kk")
+
+	}
 	for i := 0; i < types.NumField(); i++{
 		Fieldname := types.Type().Field(i).Name
 		FieldType := types.Type().Field(i).Type
