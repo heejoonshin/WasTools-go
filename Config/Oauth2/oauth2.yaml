@@ -9,16 +9,5 @@ kakao:
     sign : https://kapi.kakao.com/v1/user/signup
     userinfo : https://kapi.kakao.com/v2/user/me
 
-naver:
-  client :
-    clientid :
-    clientsecret :
-    redirecturl : http://localhost:8080/auth
-    endpoint :
-      authurl : https://nid.naver.com/oauth2.0/authorize
-      tokenurl : https://nid.naver.com/oauth2.0/token
-  resource :
-    sign : kapi.kakao.com/v1/user/signup
-    userinfo : https://openapi.naver.com/v1/nid/me
 
 
