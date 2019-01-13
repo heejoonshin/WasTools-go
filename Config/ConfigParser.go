@@ -1,6 +1,7 @@
 package Config
 
 import (
+	"github.com/heejoonshin/WasTools-go/Config/Oauth2/custom"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
@@ -13,7 +14,7 @@ type Setting struct{
 	Name string
 	App Application
 	Db Db
-	Oauth OauthMannager
+	Oauth custom.CustomOauth
 }
 
 func (setting *Setting) GetConfig() error{
