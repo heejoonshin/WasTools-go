@@ -19,27 +19,25 @@ func main() {
 
 	ginoauth2.VarianceTimer = 300 * time.Millisecond
 
-
 	public := router.Group("/api")
-	public.GET("/", func(c *gin.Context){
+	public.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "Hello to public world"})
 	})
-	router.Use(property.Oauth.Kakao.Session("goquestsession"))
-	router.GET("/login",property.Oauth.Kakao.LoginHandler)
+	kakaoOauth, _ := property.Oauth.GetOauthProvider("kakao")
+	kakaoOauth.Setup()
+
+	router.Use(kakaoOauth.Session("goquestsession"))
+	router.GET("/login", kakaoOauth.LoginHandler)
 
 	private := router.Group("/auth")
 
-
-	private.Use(property.Oauth.Kakao.Auth())
+	private.Use(kakaoOauth.Auth())
 	//private.Use(property.Oauth.Naver.Auth())
 	private.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "Hello from private"})
 	})
 	glog.Info("bootstrapped application")
 
-
 	router.Run(":8080")
-
-
 
 }

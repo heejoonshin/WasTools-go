@@ -10,3 +10,12 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+
+# ignore vendor packages
+src/app/vendor/*
+!src/app/vendor/vendor.json
+
+
+# 설정파일
+*.yaml
